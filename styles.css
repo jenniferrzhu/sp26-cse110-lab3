@@ -24,6 +24,84 @@
   padding: 0;
 }
 
+/* id selector: targeting the specific attendance section */
+#attendance {
+  border-left: 6px solid var(--brand-orange); /* absolute: px */
+}
+
+/* attribute selector: styling text inputs within the form */
+input[type="text"] {
+  border: 1px solid var(--meeting-green);
+  border-radius: 4px;
+}
+
+/* descendant combinator: targeting any section inside the main tag */
+main section {
+  margin-bottom: 2.5rem; /* relative: rem */
+}
+
+/* child combinator: targeting sections that are direct children of the grid layout */
+.grid-layout > section {
+  background-color: white;
+  border-radius: 10px;
+}
+
+/* general sibling combinator: any p following an h2 */
+h2 ~ p {
+  color: var(--text-main);
+  opacity: 0.9;
+}
+
+/* adjacent sibling combinator: the ul directly following an h3 */
+h3 + ul {
+  border-top: 1px dashed var(--meeting-green);
+}
+
+/* combining two selectors: paragraph element with the sr-only class */
+p.sr-only {
+  display: none; /* display: none */
+}
+
+/* :has() selector: highlight sections only if they contain an image */
+section:has(img) {
+  border: 2px solid var(--mixed-accent);
+  padding: 10px;
+}
+
+form p {
+  margin-bottom: 1rem; /* shorthand margin */
+  display: block; /* display value */
+}
+
+.feedback-form {
+  background: white;
+
+  & fieldset {
+    border: 2px solid var(--mixed-accent); /* shorthand border */
+    margin: 1.5rem 0; /* shorthand margin */
+    padding: 1.5rem; /* shorthand padding */
+  }
+
+  /* styling the labels/text inside the form */
+  & p {
+    color: var(--text-main);
+    font-weight: normal;
+  }
+
+  & .submit-btn {
+    background-color: var(--main-accent);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--brand-orange);
+    }
+  }
+}
+
 /* element selectors */
 body {
   font-family: "Roboto", sans-serif; /* 3rd party font usage */
@@ -79,7 +157,6 @@ h1 {
   margin-right: auto;
   margin-bottom: 25px;
   margin-left: auto; /* auto margin */
-  margin: 25px auto; /* shorthand version */
 
   /* shorthand padding */
   padding: 20px 30px;

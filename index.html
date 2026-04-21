@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="styles.css" />
 
     <style>
-      /* Specifically styling the summary tags for a quick experiment */
       summary {
         font-weight: bold;
         cursor: pointer;
@@ -34,7 +33,7 @@
       </nav>
     </header>
     <main>
-      <section>
+      <section id="attendance">
         <h3>Attendees</h3>
         <ul class="flex-container">
           <li>Jenny Zhu</li>
@@ -119,8 +118,16 @@
       <form class="feedback-form">
         <fieldset>
           <legend>Submit Your Feedback</legend>
-          <p>Name: <input type="text" name="name" /></p>
-          <p>Date: <input type="date" name="date" /></p>
+          <p>
+            Name:
+            <input type="text" name="name" />
+          </p>
+
+          <p>
+            Date:
+            <input type="date" name="date" />
+          </p>
+
           <p>
             Favorite Feature:
             <input list="features" name="feature" />
@@ -130,6 +137,7 @@
               <option value="Analytics"></option>
             </datalist>
           </p>
+
           <p>
             Role:
             <select name="role">
@@ -138,13 +146,23 @@
               <option value="manager">Manager</option>
             </select>
           </p>
-          <p>Interested in updates: <input type="checkbox" name="updates" /></p>
+
+          <p>
+            Interested in updates:
+            <input type="checkbox" name="updates" />
+          </p>
+
           <p>
             Preferred Contact:
             <input type="radio" name="contact" value="email" /> Email
             <input type="radio" name="contact" value="phone" /> Phone
           </p>
-          <p>Comments: <textarea name="comments"></textarea></p>
+
+          <p>
+            Comments:
+            <textarea name="comments"></textarea>
+          </p>
+
           <button type="submit" class="submit-btn">Submit</button>
         </fieldset>
       </form>
