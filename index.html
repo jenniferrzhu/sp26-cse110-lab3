@@ -3,74 +3,106 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="favicon.ico" />
-    <title>Notes</title>
+    <title>CSE 110 Meeting Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+      /* Specifically styling the summary tags for a quick experiment */
+      summary {
+        font-weight: bold;
+        cursor: pointer;
+        color: var(--main-accent);
+        padding: 5px;
+      }
+    </style>
   </head>
   <body>
     <header>
-      <nav>
+      <nav class="main-nav">
         <h1>CSE 110</h1>
-        <h2>Meeting Minutes</h2>
+        <h2 style="text-transform: uppercase; letter-spacing: 2px">
+          Meeting Minutes
+        </h2>
         <h3>April 5, 2026</h3>
       </nav>
     </header>
     <main>
-      <h3>Attendees</h3>
-      <ul>
-        <li>Jenny Zhu</li>
-        <li>Alexa Liu</li>
-        <li>Crystal Nguyen</li>
-      </ul>
+      <section>
+        <h3>Attendees</h3>
+        <ul class="flex-container">
+          <li>Jenny Zhu</li>
+          <li>Alexa Liu</li>
+          <li>Crystal Nguyen</li>
+        </ul>
+      </section>
+
       <nav>
         <h3>Previous Meeting Minutes</h3>
       </nav>
-      <p>
+      <p class="summary-box">
         Assigned Alexa to <strong>figma prototype</strong>, Jenny to
         <strong>frontend</strong>, and Crystal to <strong>backend</strong>.
         <br />
         Ready to discuss <b>timeline</b>.
       </p>
+      <p class="sr-only">Hidden helper text</p>
       <hr />
-      <div>
-        <h2>Today's Meeting</h2>
-        <h3>Goals</h3>
-        <ol>
-          <li>Color scheme for product</li>
-          <li>Implementation decisions</li>
-          <li>Deadlines for Timeline</li>
-        </ol>
+
+      <div class="grid-layout">
+        <section class="grid-card">
+          <h2>Today's Meeting</h2>
+          <h3>Goals</h3>
+          <ol>
+            <li>Color scheme for product</li>
+            <li>Implementation decisions</li>
+            <li>Deadlines for Timeline</li>
+          </ol>
+        </section>
+
+        <section class="grid-card">
+          <h3>Decisions</h3>
+          <ol>
+            <li>Use <i>#8ba888</i> and <i>#f1ebe1</i> as color scheme</li>
+            <li>Use <em>React</em> and <em>MongoDB</em> for implementation</li>
+            <li>
+              <a
+                href="https://www.atlassian.com/agile/project-management/templates"
+                >Agile Template</a
+              >
+            </li>
+            <li>Get feedback on <span>figma prototype</span></li>
+          </ol>
+        </section>
+
+        <section class="grid-card">
+          <h3>Recording Preview</h3>
+          <img
+            width="320"
+            src="mongo.png"
+            alt="MongoDB"
+            class="responsive-img"
+          />
+        </section>
       </div>
-      <div>
-        <h3>Decisions</h3>
-        <ol>
-          <li>Use <i>#8ba888</i> and <i>#f1ebe1</i> as color scheme</li>
-          <li>Use <em>React</em> and <em>MongoDB</em> for implementation</li>
-          <li>
-            Use
-            <a
-              href="https://www.atlassian.com/agile/project-management/templates"
-              >Agile Template</a
-            >
-            to stay on track
-          </li>
-          <li>Get feedback on <span>figma prototype</span> from users</li>
-        </ol>
-      </div>
+
       <section>
-        <h3>Recordings/Images</h3>
-        <img width="320" src="mongo.png" alt="MongoDB" />
-        <br />
         <p>Sample Video</p>
         <video width="320" height="240" controls>
           <source src="Recording.mov" type="video/mp4" />
-          Video could not be played.
         </video>
-        <br />
         <p>Sample Audio</p>
         <audio controls>
           <source src="Audio.m4a" type="audio/mp4" />
-          Audio could not be played.
         </audio>
       </section>
+
       <h3>Next Meeting</h3>
       <details>
         <summary>POC Implementation</summary>
@@ -84,19 +116,11 @@
     <hr />
     <footer>
       <h2>Feedback Form</h2>
-      <form>
+      <form class="feedback-form">
         <fieldset>
           <legend>Submit Your Feedback</legend>
-          <p>
-            Name:
-            <input type="text" name="name" />
-          </p>
-
-          <p>
-            Date:
-            <input type="date" name="date" />
-          </p>
-
+          <p>Name: <input type="text" name="name" /></p>
+          <p>Date: <input type="date" name="date" /></p>
           <p>
             Favorite Feature:
             <input list="features" name="feature" />
@@ -114,24 +138,14 @@
               <option value="manager">Manager</option>
             </select>
           </p>
-
-          <p>
-            Interested in updates:
-            <input type="checkbox" name="updates" />
-          </p>
-
+          <p>Interested in updates: <input type="checkbox" name="updates" /></p>
           <p>
             Preferred Contact:
             <input type="radio" name="contact" value="email" /> Email
             <input type="radio" name="contact" value="phone" /> Phone
           </p>
-
-          <p>
-            Comments:
-            <textarea name="comments"></textarea>
-          </p>
-
-          <button type="submit">Submit</button>
+          <p>Comments: <textarea name="comments"></textarea></p>
+          <button type="submit" class="submit-btn">Submit</button>
         </fieldset>
       </form>
     </footer>

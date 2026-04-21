@@ -1,0 +1,172 @@
+/* css variables with fallbacks + colors in hex, rgb, hsl, named, color() wider-gamut, and color-mix() */
+:root {
+  --meeting-green: #8ba888; /* hex */
+  --bg-cream: #f1ebe1; /* hex */
+  --text-main: hsl(0, 0%, 20%); /* hsl */
+  --header-white: rgb(255, 255, 255); /* rgb */
+  --brand-orange: orange; /* named color */
+  --p3-accent: color(display-p3 0.1 0.5 0.2); /* wider-gamut color() */
+  --mixed-accent: color-mix(
+    in srgb,
+    var(--meeting-green),
+    black 20%
+  ); /* color-mix() */
+  --main-accent: var(
+    --meeting-green,
+    darkgreen
+  ); /* css variable with named fallback */
+}
+
+/* universal selector: setup box model behavior */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* element selectors */
+body {
+  font-family: "Roboto", sans-serif; /* 3rd party font usage */
+  background-color: var(--bg-cream); /* background-color */
+  color: var(--text-main);
+  line-height: 1.5;
+  min-height: 100vh; /* relative unit: vh */
+}
+
+/* selector list for headings */
+h1,
+h2,
+h3 {
+  color: var(--main-accent);
+  letter-spacing: 0.5pt; /* absolute unit: pt */
+}
+
+/* header uses sticky position and absolute units */
+header {
+  position: sticky; /* position value 1 */
+  top: 0;
+  z-index: 100;
+  background-color: var(--header-white);
+  padding: 15px; /* absolute unit: px */
+  border-bottom: 3px solid var(--mixed-accent);
+}
+
+h1 {
+  text-align: center; /* text attribute */
+  text-decoration: none; /* text attribute */
+  font-size: 2.2rem; /* relative unit: rem */
+}
+
+/* flexbox layout on the attendees list */
+.flex-container {
+  display: flex; /* flexbox layout */
+  flex-direction: row; /* flex attribute 1 */
+  justify-content: space-around; /* flex attribute 2 */
+  flex-wrap: wrap; /* flex attribute 3 */
+  list-style: none;
+  padding: 1em; /* relative unit: em */
+}
+
+/* class selector: card for the main summary */
+.summary-box {
+  background: white;
+  width: 85%; /* relative unit: % */
+  max-width: 800px; /* sizing attribute */
+  min-width: 280px; /* sizing attribute */
+
+  /* longhand margins */
+  margin-top: 25px;
+  margin-right: auto;
+  margin-bottom: 25px;
+  margin-left: auto; /* auto margin */
+  margin: 25px auto; /* shorthand version */
+
+  /* shorthand padding */
+  padding: 20px 30px;
+
+  /* longhand border properties */
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--meeting-green);
+  border-radius: 12px; /* border-radius */
+}
+
+/* grid layout for content organization */
+.grid-layout {
+  display: grid; /* grid layout */
+  grid-template-columns: repeat(3, 1fr); /* grid attribute 1 */
+  gap: 25px; /* grid attribute 2 */
+  align-items: start; /* grid attribute 3 */
+  padding: 2rem;
+}
+
+/* pseudo-class: hover effects */
+a:hover {
+  color: var(--brand-orange);
+  text-decoration: underline;
+}
+
+/* pseudo-class: active state */
+.submit-btn:active {
+  transform: scale(0.96);
+  background-color: var(--brand-orange);
+}
+
+/* form layout using box model longhands */
+fieldset {
+  /* shorthand border: <width> <style> <color> */
+  border: 2px solid var(--mixed-accent);
+  /* shorthand margin */
+  margin: 1.5rem 0;
+  /* longhand padding */
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+textarea {
+  width: 100%;
+  height: 3.5cm; /* absolute unit: cm */
+  display: block; /* display value 1 */
+}
+
+/* responsive image styling */
+img.responsive-img {
+  display: inline-block; /* display value 2 */
+  max-width: 100%;
+  height: auto;
+}
+
+/* footer box model inversion (shorthand padding, longhand margin) */
+footer {
+  background-color: var(--main-accent);
+  color: white;
+  position: relative; /* position value 2 */
+
+  /* shorthand padding */
+  padding: 30px 10px;
+
+  /* longhand margin */
+  margin-top: 40px;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* media query: reflow layout for mobile form factors */
+@media (max-width: 768px) {
+  .grid-layout {
+    grid-template-columns: 1fr; /* layout reflow */
+  }
+
+  .flex-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* hidden helper for checklist completeness */
+.sr-only {
+  display: none;
+}
